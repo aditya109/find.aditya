@@ -10,10 +10,10 @@
 	--themeDotBorder:#FFF;
 
 	--previewBg:rgb(25, 39, 52, 0.8);
-	--previewShadow:#111921;
+	--previewShadow:#030b2c;
 
 
 	--buttonColor:#17a2b8;
     --socialLink: white;
-
+	--previewColor: rgb(89, 120, 255);
 }
