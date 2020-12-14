@@ -95,10 +95,10 @@ section {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background: #CAA3EA;
+    background: #e1c6f7cc;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: -3;
 }
 .subtitle {
     text-transform: uppercase;
@@ -215,8 +215,29 @@ section {
     }
 }
 
+// call-to-action
+.call-to-action {
+    background: #20dae7;
+    .like-div {
+        font-size: 1.5em;
+        p .like-text {
 
+        }
+        p .connect {
+            font-weight: 700;
+            color: #8816df;
+            &:hover {
+                text-decoration: underline;
+            }   
+        }
+    }
+}
 
+// footer
+.foot-container {
+    background: #8816df;
+    
+}
 
 @media only screen and (min-width:800px) {
     .featured, .portfolio {
@@ -352,10 +373,10 @@ section {
     .featured::before {
         content: "";
         position: absolute;
-        width: 350px;
-        height: 350px;
+        width: 415px;
+        height: 415px;
         border-radius: 50%;
-        background: #CAA3EA;
+        background: #caa3ea71;
         top: 0;
         left: 0;
         z-index: -1;

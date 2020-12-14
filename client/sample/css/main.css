@@ -101,10 +101,10 @@ section {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: #CAA3EA;
+  background: #e1c6f7cc;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -3;
 }
 
 .subtitle {
@@ -225,6 +225,27 @@ section {
   padding-bottom: 0.1em;
   padding-top: 0.4em;
   font-weight: 400;
+}
+
+.call-to-action {
+  background: #20dae7;
+}
+
+.call-to-action .like-div {
+  font-size: 1.5em;
+}
+
+.call-to-action .like-div p .connect {
+  font-weight: 700;
+  color: #8816df;
+}
+
+.call-to-action .like-div p .connect:hover {
+  text-decoration: underline;
+}
+
+.foot-container {
+  background: #8816df;
 }
 
 @media only screen and (min-width: 800px) {
@@ -361,10 +382,10 @@ section {
   .featured::before {
     content: "";
     position: absolute;
-    width: 350px;
-    height: 350px;
+    width: 415px;
+    height: 415px;
     border-radius: 50%;
-    background: #CAA3EA;
+    background: #caa3ea71;
     top: 0;
     left: 0;
     z-index: -1;
