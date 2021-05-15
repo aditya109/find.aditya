@@ -1,12 +1,29 @@
 import './App.css';
-import { profile } from './manifest';
+import { profile } from './assets/manifest';
+import images from './assets/images';
+import Hero from './components/Hero/Hero';
 
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+
+import React, { Component } from 'react'
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.profile = profile;
+    this.images = images;
+  }
+  render() {
+    return (
+      <div className="App"
+      >
+        <Hero
+          fullName={this.profile.full_name}
+          shortName={this.profile.short_name}
+          navigation={this.profile.navigation}
+          hero={this.profile.hero}
+        />
+      </div>
+    )
+  }
 }
 
-export default App;
