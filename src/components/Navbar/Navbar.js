@@ -12,7 +12,7 @@ export default class Navbar extends Component {
     getNavigationItems(navLinks) {
         return (
             <React.Fragment>
-                <ul>
+                <ul id="horizontal-nav-list">
                     {
                         navLinks.map(navLink => (
                             <li key={navLink}>
@@ -29,7 +29,7 @@ export default class Navbar extends Component {
     getSocialHeaders(socialHeaders) {
         return (
             <React.Fragment>
-                <ul>
+                <ul id="horizontal-social-headers-list">
                     {
                         socialHeaders.map(socialHeader => (
                             <li key={socialHeader.name}>
@@ -48,23 +48,22 @@ export default class Navbar extends Component {
         this.profile = this.props.profile;
         return (
             // Navigation
-            <div className="navbar-parent-container">
-                <div className="nav-container">
-                    <header>
-                        <a href="/" className="logo">
-                            {this.profile.fullName}
-                        </a>
-                        <nav>
-                            {
-                                this.getNavigationItems(this.profile.navigation.nav_links)
-                            }
-                        </nav>
-                    </header>
-                    <div className="social-header">
+            <div className="nav-container">
+                <div className="nav-list">
+                    <a href="/" className="brand-logo">
+                        {this.profile.fullName}
+                    </a>
+                    <nav>
                         {
-                            this.getSocialHeaders(this.profile.assets.socialHeaders.logos)
+                            this.getNavigationItems(this.profile.navigation.nav_links)
                         }
-                    </div>
+                    </nav>
+                </div>
+
+                <div className="social-header">
+                    {
+                        this.getSocialHeaders(this.profile.assets.socialHeaders.logos)
+                    }
                 </div>
             </div>
         )
