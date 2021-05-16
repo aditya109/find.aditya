@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './Hero.css';
 
 export default class Hero extends Component {
-    // eslint-disable-next-line no-useless-constructor
     constructor(props) {
         super(props);
         this.profile = {};
@@ -13,12 +12,13 @@ export default class Hero extends Component {
             fullName: this.props.fullName,
             shortName: this.props.shortName,
             navigation: this.props.navigation,
-            hero: this.props.hero
+            hero: this.props.hero,
+            assets: this.props.assets
         };
         return (
             <>
                 <Navbar
-                    navigation={this.profile.navigation}
+                    profile={this.profile}
                 />
             </>
         )
