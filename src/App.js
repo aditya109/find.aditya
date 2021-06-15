@@ -21,6 +21,7 @@ export default class App extends Component {
           shortName={this.profile.short_name}
           navigation={this.profile.navigation}
           hero={this.profile.hero}
+          assets={this.images.navigation}
         />
       </div>
     )

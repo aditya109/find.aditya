@@ -295,7 +295,9 @@ section {
   .hero {
     height: 90vh;
   }
+
   .nav-container {
+    /* ok */
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 66% auto;
@@ -303,21 +305,27 @@ section {
     background: unset;
   }
   .nav-container header {
+    /* ok */
     background: #8A00CB;
   }
   header {
+    /* ok */
     padding: 2em 2em 2em 4em;
   }
   .social-header {
+    /* ok */
     padding: 2em 4em 2em 0;
   }
   section {
+    /* ok */
     padding: 4em;
   }
   .social-header {
+    /* ok */
     display: block;
   }
   .social-header ul {
+    /* ok */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -328,6 +336,7 @@ section {
     float: right;
   }
   .social-header ul img {
+    /* ok */
     width: 20px;
   }
   .hero {
@@ -371,12 +380,15 @@ section {
 
 @media only screen and (min-width: 1250px) {
   header {
+    /* Ok */
     padding: 2em 2em 2em 10em;
   }
   .social-header {
+    /* Ok */
     padding: 2em 10em 2em 0;
   }
   section {
+    /* Ok */
     padding: 10em 10em 4em 10em;
   }
   .featured::before {
@@ -404,12 +416,15 @@ section {
 
 @media only screen and (min-width: 1550px) {
   header {
+     /* Ok */
     padding: 2em 2em 2em 20em;
   }
   .social-header {
+     /* Ok */
     padding: 2em 20em 2em 0;
   }
   section {
+     /* Ok */
     padding: 6em 20em 4em 20em;
   }
   .hero .content {

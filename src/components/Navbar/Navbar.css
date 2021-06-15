@@ -1,0 +1,37 @@
+/* Navigation */
+.nav-container {
+  height: 30vh;
+  display: grid;
+  grid-template-columns: 67% auto;
+  font-size: 26px;
+}
+
+.nav-container .nav-list {
+  background: #8a00cb;
+  height: fit-content;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav-container .nav-list nav ul#horizontal-nav-list {
+  display: flex;
+
+  font-weight: 100;
+}
+
+.nav-container .nav-list nav ul#horizontal-nav-list li {
+  display: inline;
+  padding: 1em 1em 1em 1em;
+}
+
+@media only screen and (min-width: 800px) {
+}
+
+@media only screen and (min-width: 1050px) {
+}
+
+@media only screen and (min-width: 1250px) {
+}
+
+@media only screen and (min-width: 1550px) {
+}

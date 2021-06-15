@@ -1,9 +1,20 @@
 const images = {
     navigation: {
         socialHeaders: {
-            twitterIcon: require('./img/twitter.svg'),
-            githubIcon: require('./img/github.svg'),
-            linkedinIcon: require('./img/linkedin.svg')
+            logos: [
+                {
+                    name: 'twitter',
+                    icon: require('./img/twitter.svg')
+                },
+                {
+                    name: 'github',
+                    icon: require('./img/github.svg')
+                },
+                {
+                    name: 'linkedin',
+                    icon: require('./img/linkedin.svg')
+                }
+            ]
         }
     }
 }
