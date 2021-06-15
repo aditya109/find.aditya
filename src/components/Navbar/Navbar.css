@@ -3,6 +3,7 @@
   height: 30vh;
   display: grid;
   grid-template-columns: 67% auto;
+  font-size: 26px;
 }
 
 .nav-container .nav-list {
@@ -10,17 +11,17 @@
   height: fit-content;
   display: flex;
   justify-content: space-evenly;
-  font-size: 26px;
 }
 
 .nav-container .nav-list nav ul#horizontal-nav-list {
   display: flex;
+
+  font-weight: 100;
 }
 
-.nav-container .nav-list nav ul#horizontal-nav-list li{
+.nav-container .nav-list nav ul#horizontal-nav-list li {
   display: inline;
   padding: 1em 1em 1em 1em;
-  
 }
 
 @media only screen and (min-width: 800px) {
