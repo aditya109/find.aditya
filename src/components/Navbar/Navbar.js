@@ -33,8 +33,8 @@ export default class Navbar extends Component {
                     {
                         socialHeaders.map(socialHeader => (
                             <li key={socialHeader.name}>
-                                <a href="/">
-                                    <img src={socialHeader.icon.default} alt={socialHeader.name}></img>
+                                <a href="/" id="social-header-icon-link">
+                                    <img src={socialHeader.icon} alt={socialHeader.name}></img>
                                 </a>
                             </li>)
                         )
@@ -46,6 +46,7 @@ export default class Navbar extends Component {
 
     render() {
         this.profile = this.props.profile;
+        console.log(this.profile);
         return (
             // Navigation
             <div className="nav-container">

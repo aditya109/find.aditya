@@ -16,11 +16,11 @@ export default class Hero extends Component {
             assets: this.props.assets
         };
         return (
-            <>
+            <React.Fragment>
                 <Navbar
                     profile={this.profile}
                 />
-            </>
+            </React.Fragment>
         )
     }
 }

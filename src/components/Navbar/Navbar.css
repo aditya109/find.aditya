@@ -15,13 +15,20 @@
 
 .nav-container .nav-list nav ul#horizontal-nav-list {
   display: flex;
-
   font-weight: 100;
 }
 
 .nav-container .nav-list nav ul#horizontal-nav-list li {
   display: inline;
   padding: 1em 1em 1em 1em;
+}
+
+#horizontal-social-headers-list {
+  display: flex;
+}
+#social-header-icon-link img {
+  height: 1.63rem;
+  padding: 92px 92px 92px 92px;
 }
 
 @media only screen and (min-width: 800px) {
