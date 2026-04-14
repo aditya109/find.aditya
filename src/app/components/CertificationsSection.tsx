@@ -5,12 +5,18 @@ const certifications = [
     title: "Certified Kubernetes Administrator",
     issuer: "The Linux Foundation",
     period: "Valid '21 – '24",
-    badge: "☸️",
+    badge: "cka.png",
     color: "#326CE5",
-    validateUrl: "https://www.cncf.io/certification/cka/",
+    validateUrl: "https://www.credly.com/badges/65b33e5c-851e-4db6-aba7-8f96cbe837b9/public_url",
     description:
-      "Industry-recognized certification validating expertise in Kubernetes cluster administration, workload management, networking, and security.",
-    skills: ["Cluster Administration", "Networking", "Storage", "Security", "Workloads"],
+      "Earners of this designation demonstrated the skills, knowledge and competencies to perform the responsibilities of a Kubernetes Administrator. ",
+    skills: [
+      "Cluster Administration",
+      "Networking",
+      "Storage",
+      "Security",
+      "Workloads",
+    ],
   },
 ];
 
@@ -21,8 +27,13 @@ const publications = [
     venueColor: "#f59e0b",
     description:
       "Research paper published at the International Conference on Machine Learning and Intelligent Processing (ICMLIP 2019), Springer. Explores deep learning approaches to abstractive summarization and unsupervised classification of natural language text.",
-    tags: ["NLP", "Deep Learning", "Text Summarization", "Unsupervised Learning"],
-    icon: "📄",
+    tags: [
+      "NLP",
+      "Deep Learning",
+      "Text Summarization",
+      "Unsupervised Learning",
+    ],
+    icon: "springer-logo.png",
   },
 ];
 
@@ -86,15 +97,17 @@ export function CertificationsSection() {
                 >
                   <div
                     className="h-0.5 rounded-full mb-5"
-                    style={{ background: `linear-gradient(90deg, ${cert.color}, transparent)` }}
+                    style={{
+                      background: `linear-gradient(90deg, ${cert.color}, transparent)`,
+                    }}
                   />
                   <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl"
-                      style={{ background: `${cert.color}15`, border: `1px solid ${cert.color}30` }}
-                    >
-                      {cert.badge}
-                    </div>
+                    <img
+                      src={`/${cert.badge}`}
+                      alt={`${cert.title} badge`}
+                      className="w-12 h-12 rounded-xl object-contain"
+                      style={{ border: `1px solid ${cert.color}30` }}
+                    />
                     <div className="flex-1">
                       <h4
                         style={{
@@ -108,13 +121,20 @@ export function CertificationsSection() {
                       </h4>
                       <div
                         className="mt-1"
-                        style={{ color: cert.color, fontSize: "0.82rem", fontWeight: 500 }}
+                        style={{
+                          color: cert.color,
+                          fontSize: "0.82rem",
+                          fontWeight: 500,
+                        }}
                       >
                         {cert.issuer}
                       </div>
                       <div
                         className="mt-0.5"
-                        style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.78rem" }}
+                        style={{
+                          color: "rgba(255,255,255,0.4)",
+                          fontSize: "0.78rem",
+                        }}
                       >
                         {cert.period}
                       </div>
@@ -186,19 +206,17 @@ export function CertificationsSection() {
                   <div
                     className="h-0.5 rounded-full mb-5"
                     style={{
-                      background: "linear-gradient(90deg, #ec4899, transparent)",
+                      background:
+                        "linear-gradient(90deg, #ec4899, transparent)",
                     }}
                   />
                   <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl"
-                      style={{
-                        background: "rgba(236,72,153,0.1)",
-                        border: "1px solid rgba(236,72,153,0.25)",
-                      }}
-                    >
-                      {pub.icon}
-                    </div>
+                    <img
+                      src={`/${pub.icon}`}
+                      alt={`${pub.title} icon`}
+                      className="w-12 h-12 rounded-xl object-contain"
+                      style={{ border: `1px solid ${pub.venueColor}30` }}
+                    />
                     <div className="flex-1">
                       <h4
                         style={{

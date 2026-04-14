@@ -302,7 +302,7 @@ export function ExperienceSection() {
                 Kalinga Institute of Industrial Technology
               </div>
               <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.78rem", marginTop: "0.25rem" }}>
-                Bhubaneswar, India · 2016 – 2020
+                Bhubaneswar, India · 2014 – 2018
               </div>
             </div>
           </div>

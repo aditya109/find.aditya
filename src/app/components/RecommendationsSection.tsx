@@ -2,44 +2,23 @@ import { Linkedin, Quote } from "lucide-react";
 
 const recommendations = [
   {
-    name: "Rahul Sharma",
-    title: "Engineering Manager",
-    company: "Furlenco",
-    relation: "Aditya's manager at Furlenco",
-    avatar: "RS",
-    color: "#00d4ff",
-    text:
-      "Aditya is one of the most dedicated engineers I've had the pleasure of working with. His work on the orchestration microservice using Temporal was nothing short of exceptional — he brought down infrastructure costs by 82% while improving customer adoption significantly. His drive to implement best practices like unit tests and design documents has raised the bar for the entire team.",
-  },
-  {
-    name: "Priya Nair",
+    name: "Amitesh Srivastava",
     title: "Senior Software Engineer",
+    company: "CBTS",
+    relation:
+      "Aditya was senior to Amitesh but didn’t manage Amitesh directly at Furlenco",
+    avatar: "AS",
+    color: "#00d4ff",
+    text: "I had the pleasure of working with Aditya at Furlenco. His ability to tackle complex problems with innovative solutions was truly impressive. He is always eager to learn about new technologies and find ways to apply them to our work. \nHe also played a crucial role in fostering a positive and collaborative team culture. His enthusiasm and dedication inspired everyone around them, and I believe his contributions significantly increased our team’s overall productivity.",
+  },
+  {
+    name: "Akil KJ Bhat",
+    title: "Senior Product Manager",
     company: "Furlenco",
-    relation: "Colleague at Furlenco",
-    avatar: "PN",
+    relation: "Akil worked with Aditya on the same team at Furlenco",
+    avatar: "AB",
     color: "#7c3aed",
-    text:
-      "Working alongside Aditya has been a great experience. He has a deep understanding of Golang and distributed systems — his cart management service with Kafka integration was a textbook implementation of event-driven architecture. He's always willing to help the team and bring clarity to complex technical problems.",
-  },
-  {
-    name: "Ankit Verma",
-    title: "Tech Lead",
-    company: "Exotel Techcom",
-    relation: "Aditya's tech lead at Exotel",
-    avatar: "AV",
-    color: "#10b981",
-    text:
-      "Aditya was a key contributor during his time at Exotel. He drove the migration to microservices that allowed us to scale from 25 million to 108 million requests per day. His systematic approach to load testing and infrastructure automation using Terraform was a game changer for our team's confidence in deployments.",
-  },
-  {
-    name: "Sneha Gupta",
-    title: "Product Manager",
-    company: "Furlenco",
-    relation: "Worked cross-functionally with Aditya",
-    avatar: "SG",
-    color: "#f59e0b",
-    text:
-      "Aditya is exceptional at translating complex engineering challenges into business outcomes. He always thinks beyond the code — understanding user impact, business metrics, and long-term maintainability. His resilient event-driven service directly impacted our marketing campaign accuracy and effectiveness.",
+    text: "Aditya's approach to problem-solving is exemplary, consistently demonstrating a sound understanding of intricate systems. Aditya possesses the unique ability to break down complex issues and present them with clarity, fostering a collaborative environment that encourages open discussion and innovative solutions. \nWorking with Aditya was a continuous learning experience for me as a Product Manager. His collaborative nature and insightful contributions made our projects truly two-way endeavours. It was never just about transactions; it was about mutual growth and achieving project success together. \nAditya Kumar's expertise, collaborative spirit and commitment to excellence make him an invaluable asset to any team or project.",
   },
 ];
 
@@ -112,12 +91,19 @@ export function RecommendationsSection() {
                 className="flex-1"
                 style={{
                   color: "rgba(255,255,255,0.65)",
-                  fontSize: "0.88rem",
+                  fontSize: "0.8rem",
                   lineHeight: 1.8,
                   fontStyle: "italic",
                 }}
               >
-                "{rec.text}"
+                "
+                {rec.text.split("\n").map((line, idx) => (
+                  <span key={idx}>
+                    {line}
+                    {idx < rec.text.split("\n").length - 1 && <br />}
+                  </span>
+                ))}
+                "
               </p>
 
               {/* Author */}
@@ -136,14 +122,25 @@ export function RecommendationsSection() {
                   {rec.avatar}
                 </div>
                 <div>
-                  <div style={{ color: "#ffffff", fontSize: "0.88rem", fontWeight: 600 }}>
+                  <div
+                    style={{
+                      color: "#ffffff",
+                      fontSize: "0.88rem",
+                      fontWeight: 600,
+                    }}
+                  >
                     {rec.name}
                   </div>
                   <div style={{ color: rec.color, fontSize: "0.75rem" }}>
-                    {rec.title} · {rec.company}
-                  </div>
-                  <div style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.72rem" }}>
                     {rec.relation}
+                  </div>
+                  <div
+                    style={{
+                      color: "rgba(255,255,255,0.3)",
+                      fontSize: "0.72rem",
+                    }}
+                  >
+                    {rec.title} · {rec.company}
                   </div>
                 </div>
               </div>
