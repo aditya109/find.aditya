@@ -103,7 +103,7 @@ export function CertificationsSection() {
                   />
                   <div className="flex items-start gap-4">
                     <img
-                      src={`/${cert.badge}`}
+                      src={`/find.aditya/${cert.badge}`}
                       alt={`${cert.title} badge`}
                       className="w-12 h-12 rounded-xl object-contain"
                       style={{ border: `1px solid ${cert.color}30` }}
@@ -209,7 +209,7 @@ export function CertificationsSection() {
                   />
                   <div className="flex items-start gap-4">
                     <img
-                      src={`/${pub.icon}`}
+                      src={`/find.aditya/${pub.icon}`}
                       alt={`${pub.title} icon`}
                       className="w-12 h-12 rounded-xl object-contain"
                       style={{ border: `1px solid ${pub.venueColor}30` }}
