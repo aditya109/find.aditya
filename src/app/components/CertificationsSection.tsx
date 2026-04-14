@@ -7,7 +7,8 @@ const certifications = [
     period: "Valid '21 – '24",
     badge: "cka.png",
     color: "#326CE5",
-    validateUrl: "https://www.credly.com/badges/65b33e5c-851e-4db6-aba7-8f96cbe837b9/public_url",
+    validateUrl:
+      "https://www.credly.com/badges/65b33e5c-851e-4db6-aba7-8f96cbe837b9/public_url",
     description:
       "Earners of this designation demonstrated the skills, knowledge and competencies to perform the responsibilities of a Kubernetes Administrator. ",
     skills: [
@@ -73,9 +74,15 @@ export function CertificationsSection() {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Certifications */}
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div
+            className="rounded-2xl p-6 flex flex-col h-full transition-all duration-300 hover:scale-[1.01]"
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: `1px solid ${certifications[0].color}30`,
+              minHeight: "430px",
+            }}
+          >
             <div className="flex items-center gap-2 mb-6">
               <Award size={18} style={{ color: "#f59e0b" }} />
               <h3
@@ -85,16 +92,9 @@ export function CertificationsSection() {
                 Certifications
               </h3>
             </div>
-            <div className="space-y-4">
+            <div className="flex-1">
               {certifications.map((cert, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.01]"
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: `1px solid ${cert.color}30`,
-                  }}
-                >
+                <div key={i} className="flex flex-col h-full">
                   <div
                     className="h-0.5 rounded-full mb-5"
                     style={{
@@ -151,8 +151,16 @@ export function CertificationsSection() {
                   >
                     {cert.description}
                   </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <a
+                    href={cert.validateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1.5 text-xs transition-opacity duration-200 hover:opacity-80"
+                    style={{ color: cert.color }}
+                  >
+                    <ExternalLink size={12} /> Validate Certificate
+                  </a>
+                  <div className="mt-auto flex flex-wrap gap-2">
                     {cert.skills.map((skill, si) => (
                       <span
                         key={si}
@@ -167,23 +175,19 @@ export function CertificationsSection() {
                       </span>
                     ))}
                   </div>
-
-                  <a
-                    href={cert.validateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1.5 text-xs transition-opacity duration-200 hover:opacity-80"
-                    style={{ color: cert.color }}
-                  >
-                    <ExternalLink size={12} /> Validate Certificate
-                  </a>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Publications */}
-          <div>
+          <div
+            className="rounded-2xl p-6 flex flex-col h-full transition-all duration-300 hover:scale-[1.01]"
+            style={{
+              background: "rgba(255,255,255,0.03)",
+              border: "1px solid rgba(236,72,153,0.2)",
+              minHeight: "430px",
+            }}
+          >
             <div className="flex items-center gap-2 mb-6">
               <BookOpen size={18} style={{ color: "#ec4899" }} />
               <h3
@@ -193,16 +197,9 @@ export function CertificationsSection() {
                 Publications
               </h3>
             </div>
-            <div className="space-y-4">
+            <div className="flex-1">
               {publications.map((pub, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl p-6 transition-all duration-300 hover:scale-[1.01]"
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: "1px solid rgba(236,72,153,0.2)",
-                  }}
-                >
+                <div key={i} className="flex flex-col h-full">
                   <div
                     className="h-0.5 rounded-full mb-5"
                     style={{
@@ -252,7 +249,7 @@ export function CertificationsSection() {
                     {pub.description}
                   </p>
 
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-auto flex flex-wrap gap-2">
                     {pub.tags.map((tag, ti) => (
                       <span
                         key={ti}

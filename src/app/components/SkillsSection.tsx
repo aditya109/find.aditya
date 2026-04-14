@@ -4,12 +4,17 @@ const skillCategories = [
   {
     title: "Languages",
     color: "#00d4ff",
-    skills: ["Golang", "Java", "Python", "C#"],
+    skills: ["Golang", "Rust", "Python"],
+  },
+  {
+    title: "Platform Frameworks",
+    color: "#ec4899",
+    skills: ["Temporal", "Databricks"],
   },
   {
     title: "Message Streaming",
     color: "#7c3aed",
-    skills: ["Apache Kafka", "Temporal"],
+    skills: ["Apache Kafka", "SQS", "SNS"],
   },
   {
     title: "Databases",
@@ -19,17 +24,27 @@ const skillCategories = [
   {
     title: "Cloud & DevOps",
     color: "#f59e0b",
-    skills: ["Kubernetes", "AWS", "CircleCI", "Jenkins", "Terraform", "Istio"],
-  },
-  {
-    title: "Frameworks",
-    color: "#ec4899",
-    skills: ["Spring Boot", "ReactJS", "Microservices"],
+    skills: [
+      "AWS",
+      "GCP",
+      "Azure",
+      "Kubernetes",
+      "CircleCI",
+      "ArgoCD",
+      "Jenkins",
+      "Terraform",
+      "Istio",
+    ],
   },
   {
     title: "Practices",
     color: "#06b6d4",
-    skills: ["Unit Testing", "CI/CD", "Distributed Tracing", "Event-Driven Architecture"],
+    skills: [
+      "Unit Testing",
+      "TDD",
+      "Distributed Tracing",
+      "Event-Driven Architecture",
+    ],
   },
 ];
 
@@ -43,13 +58,14 @@ function AnimatedBar({ delay }: { delay: number }) {
           if (entry.isIntersecting && barRef.current) {
             setTimeout(() => {
               if (barRef.current) {
-                barRef.current.style.width = barRef.current.dataset.width || "0%";
+                barRef.current.style.width =
+                  barRef.current.dataset.width || "0%";
               }
             }, delay);
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
     if (barRef.current) observer.observe(barRef.current);
     return () => observer.disconnect();
@@ -144,14 +160,35 @@ export function SkillsSection() {
 
         {/* All skills cloud */}
         <div className="mt-12 text-center">
-          <p className="text-xs uppercase tracking-widest mb-6" style={{ color: "rgba(255,255,255,0.3)" }}>
+          <p
+            className="text-xs uppercase tracking-widest mb-6"
+            style={{ color: "rgba(255,255,255,0.3)" }}
+          >
             Full Stack
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              "Golang", "Java", "Python", "Kafka", "Temporal", "PostgreSQL", "MongoDB",
-              "Redis", "Aerospike", "Kubernetes", "AWS", "CircleCI", "Jenkins",
-              "Terraform", "Istio", "ReactJS", "Spring Boot", "Travis CI", "GKE",
+              "Golang",
+              "Rust",
+              "Python",
+              "Apache Kafka",
+              "Temporal",
+              "Databricks",
+              "SQS",
+              "SNS",
+              "PostgreSQL",
+              "MongoDB",
+              "Redis",
+              "Aerospike",
+              "Kubernetes",
+              "AWS",
+              "GCP",
+              "Azure",
+              "CircleCI",
+              "Jenkins",
+              "Terraform",
+              "Istio",
+              "ArgoCD",
             ].map((skill, i) => (
               <span
                 key={i}

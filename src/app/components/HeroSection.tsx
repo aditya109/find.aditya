@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Phone, ExternalLink, ChevronDown } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone, ShieldCheck, ChevronDown } from "lucide-react";
 import { ThreeBackground } from "./ThreeBackground";
 
 export function HeroSection() {
@@ -139,27 +139,25 @@ export function HeroSection() {
             <Github size={16} /> GitHub
           </a>
           <a
-            href="https://aditya109.github.io/find.aditya/"
+            href="https://www.credly.com/users/aditya-kumar.dc8debcf/badges#credly"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:scale-105"
             style={{
-              background: "rgba(0,212,255,0.1)",
-              color: "#00d4ff",
-              border: "1px solid rgba(0,212,255,0.25)",
+              background: "rgb(16, 185, 129, 0.85)",
+              color: "#ffffff",
+              border: "1px solid rgba(16, 185, 129, 0.19)",
             }}
           >
-            <ExternalLink size={16} /> Website
+            <ShieldCheck size={16} /> Credly
           </a>
         </div>
 
         {/* Stats row */}
         <div className="flex flex-wrap justify-center gap-6 md:gap-12">
           {[
-            { value: "5+", label: "Years Experience" },
-            { value: "4", label: "Companies" },
-            { value: "63%", label: "Adoption Boost" },
-            { value: "82%", label: "Cost Reduction" },
+            { value: "8+", label: "Years Experience" },
+
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div

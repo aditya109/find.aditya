@@ -3,28 +3,71 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const experiences = [
   {
+    company: "Flexera",
+    location: "Bangalore, India",
+    role: "Senior Software Engineer",
+    period: "August '24 - Present",
+    current: true,
+    color: "#4cbb17",
+    keywords: [
+      "Golang",
+      "Rust",
+      "Temporal",
+      "SQS",
+      "SNS",
+      "MongoDB",
+      "AWS",
+      "EKS",
+      "Github Actions",
+    ],
+    achievements: [
+      {
+        text: "Designed and developed a critical billing-locking microservice that manages automatic and manual billing period locks to ensure data integrity, audit compliance, and controlled reprocessing of finalized billing data. Built an event-driven pub/sub and queue-based architecture for asynchronous bulk reprocess/unlock requests, unified multi-stage bill data enrichment into a searchable view with CSV export, and added audit logging, rate limiting, cursor pagination, and automated retry recovery.",
+        metric: "safe reprocessing of finalized bills manual effort ↓",
+      },
+      {
+        text: "Architected and built a durable workflow orchestration service using Temporal workflow-as-code to coordinate multi-stage cloud billing pipelines for locking, unlocking, reprocessing, and schedule-based finalization across distributed downstream systems. Implemented built-in retries, heartbeat health checks, stale-operation recovery, query/signal-based progress visibility, per-organization rate limiting, audit-trail correlation, and bulk partial-failure handling for safe concurrent bill reprocessing.",
+        metric: "100% reliability for critical orchestration operations",
+      },
+      {
+        text: "Designed and documented a unified connector platform for cloud account onboarding, delivering a single consistent experience across multiple service domains. Defined an event-driven architecture with SQS/SNS, queue adapters, and asynchronous change workflows for create/update/delete operations, including clear failure reporting and retry paths. Built CloudFormation StackSet–based IAM role provisioning, credential vault integration, and migration from legacy credential storage. Ensured backward compatibility for downstream services by maintaining existing MongoDB schemas while introducing a dual-source model, and defined the contract for connector events and failure notifications to keep FinOps workflows resilient and observable.",
+        metric: "3–4 day onboarding duration → 2 hours",
+      },
+    ],
+  },
+  {
     company: "Furlenco",
     location: "Bangalore, India",
     role: "Senior Software Engineer",
-    period: "December '22 – Present",
-    current: true,
-    color: "#00d4ff",
-    keywords: ["Golang", "Temporal", "Apache Kafka", "PostgreSQL", "MongoDB", "AWS", "CircleCI", "Kubernetes"],
+    period: "December '22 – August '24",
+    current: false,
+    color: "#00A1DE",
+    keywords: [
+      "Golang",
+      "Rust",
+      "Temporal",
+      "Apache Kafka",
+      "PostgreSQL",
+      "MongoDB",
+      "AWS",
+      "CircleCI",
+      "Kubernetes",
+    ],
     achievements: [
       {
-        text: "Developed a resilient event-driven service in Golang, utilizing PostgreSQL and Kafka, to integrate with third-party vendors like MoEngage and Google Analytics — ensuring accurate state transition management for marketing campaigns.",
+        text: "Crafted a robust, scalable, and resilient event-driven service in Rust, leveraging PostgreSQL and Kafka. Employed accurate state transition management, subtle retry mechanisms, and the effective use of the adaptor pattern. Integrated various vendors like Moengage, Google Analytics, and Facebook, enabling the reconciliation of user actions for a precise understanding of business dynamics. This effort significantly contributed to providing product teams with an accurate depiction of user journeys, enhancing business insights.",
         metric: null,
       },
       {
-        text: "Built application orchestration microservice using Golang and Temporal with durable workflow executions, concurrency and distributed tracing.",
+        text: "Rebuilt the application orchestration microservice in Golang, focusing on improved communication and request management between application services. Introduced concurrency to enhance workflow latency, implemented distributed tracing, and incorporated the reliable Temporal runtime for efficient debugging. ",
         metric: "63% customer adoption ↑ · 82% infrastructure cost ↓",
       },
       {
-        text: "Implemented a Golang-based cart management service integrating Apache Kafka for user journey analysis.",
-        metric: "37% improvement in acquisition funnel",
+        text: "Implemented a Rust-based cart management service integrating Apache Kafka for user journey analysis.",
+        metric: "37% acquisition funnel ↑",
       },
       {
-        text: "Constructed a dynamic listing platform using Golang and MongoDB Atlas search, consolidating microservice data with Kafka-driven automatic refresh.",
+        text: "Constructed a dynamic listing platform as a rendering engine for products and related data, consolidating diverse microservice data elements. Utilized data modeling and Mongo DB Atlas search to enable dynamic filter functionality and similar product recommendations. Implemented Kafka to ensure seamless data synchronization with business-dependent services.",
         metric: null,
       },
       {
@@ -39,19 +82,28 @@ const experiences = [
     role: "Member of Technical Staff – I",
     period: "February '22 – December '22",
     current: false,
-    color: "#7c3aed",
-    keywords: ["Golang", "Java", "Jenkins", "Terraform", "AWS", "Unit Testing", "Kubernetes"],
+    color: "#39b54a",
+    keywords: [
+      "Golang",
+      "Ruby",
+      "Jenkins",
+      "Istio",
+      "Terraform",
+      "AWS",
+      "Jenkins",
+      "Kubernetes",
+    ],
     achievements: [
       {
-        text: "Developed a robust load-testing framework to simulate various production scenarios for capacity estimation.",
-        metric: null,
-      },
-      {
-        text: "Implemented a microservices architecture for a monolithic service, introducing containerization and CI/CD.",
+        text: "Designed microservice model for a monolithic service, which enabled independent deployments for individual components of the service. Brought in containerization for smoother and faster scaling. Built CI/CD for the service, increasing developer productivity by increasing frequency and reducing deployment time. ",
         metric: "Scaled from 25M → 108M requests/day",
       },
       {
-        text: "Automated infrastructure with Terraform; integrated Istio service mesh for traffic management, circuit breaking, fault injection, and tenant-based rate limiting.",
+        text: "Designed and developed a custom (vegeta-based) robust load-testing framework to replicate multiple types of tenant-based production scenarios, which helped in the capacity estimation (throughput and threshold) of the then-current system.",
+        metric: null,
+      },
+      {
+        text: "Integrated service mesh Istio within the service, to leverage traffic management capability and circuit breaking mechanism (outlier detection). Created fault injection pipelines to test the production cluster to increase confidence within the system. Also leveraged tenant-based rate limiting from the integrated service mesh.",
         metric: null,
       },
     ],
@@ -62,19 +114,22 @@ const experiences = [
     role: "Associate Software Developer",
     period: "July '20 – February '22",
     current: false,
-    color: "#10b981",
-    keywords: ["Golang", "C#", "Java", "Spring", "Azure Kubernetes Cluster", "Unit Testing"],
+    color: "#FF745C",
+    keywords: [
+      "Golang",
+      "C#",
+      "Java",
+      "Spring",
+      "Azure Kubernetes Cluster",
+      "Unit Testing",
+    ],
     achievements: [
       {
-        text: "Developed a rule engine in Java for core project, facilitating dynamic business rule configurations for diverse clients.",
+        text: "Built RuleEngine for the company’s core product StrategyDotZero, to serve business rule configurations for the product based on the different clients in .NET Core. Part of the team migrating the product into a microservice (.NET Core/Go) from its current monolithic architecture (.NET MVC).",
         metric: null,
       },
       {
-        text: "Contributed to migration from a monolithic architecture to microservices in Spring, refactoring three core modules.",
-        metric: null,
-      },
-      {
-        text: "Deployed decoupled modules as microservices on Azure Kubernetes Cluster with unit testing in CI pipeline.",
+        text: "Worked with the team to refactor 3 core modules and rebuilt the codebase according to defined company guidelines, aimed towards easier code maintenance. Deployed the decoupled modules as a microservice in an Azure Kubernetes Cluster, migrating it from its existing monolithic model. mplemented unit testing in the CI pipeline for the decoupled modules.",
         metric: null,
       },
     ],
@@ -85,12 +140,12 @@ const experiences = [
     role: "Software Engineer",
     period: "July '19 – July '20",
     current: false,
-    color: "#f59e0b",
+    color: "#BF40BF",
     keywords: ["ReactJS", "Golang", "Travis CI", "GKE", "Kubernetes"],
     achievements: [
       {
         text: "Developed and managed the product showcase website for CNCF Open-Source Sandbox Project 'Litmus', utilizing ReactJS for frontend and Golang for backend APIs.",
-        metric: "137% increase in open-source contributions within 8 months",
+        metric: "137% open-source contributions MoM ↑ ",
       },
       {
         text: "Implemented continuous integration in Travis and deployed the application on Google Kubernetes Engine (GKE).",
@@ -100,7 +155,13 @@ const experiences = [
   },
 ];
 
-function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: number }) {
+function ExperienceCard({
+  exp,
+  index,
+}: {
+  exp: (typeof experiences)[0];
+  index: number;
+}) {
   const [expanded, setExpanded] = useState(index === 0);
 
   return (
@@ -115,7 +176,9 @@ function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: n
       {expanded && (
         <div
           className="h-0.5"
-          style={{ background: `linear-gradient(90deg, ${exp.color}, transparent)` }}
+          style={{
+            background: `linear-gradient(90deg, ${exp.color}, transparent)`,
+          }}
         />
       )}
 
@@ -129,25 +192,47 @@ function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: n
             {/* Company dot */}
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-              style={{ background: `${exp.color}15`, border: `1px solid ${exp.color}30` }}
+              style={{
+                background: `${exp.color}15`,
+                border: `1px solid ${exp.color}30`,
+              }}
             >
-              <div className="w-3 h-3 rounded-full" style={{ background: exp.color }} />
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ background: exp.color }}
+              />
             </div>
             <div>
               <div className="flex items-center gap-2 flex-wrap">
-                <h3 style={{ color: "#ffffff", fontSize: "1.05rem", fontWeight: 600 }}>
+                <h3
+                  style={{
+                    color: "#ffffff",
+                    fontSize: "1.05rem",
+                    fontWeight: 600,
+                  }}
+                >
                   {exp.company}
                 </h3>
                 {exp.current && (
                   <span
                     className="px-2 py-0.5 rounded-full text-xs"
-                    style={{ background: "rgba(0,212,255,0.12)", color: "#00d4ff", border: "1px solid rgba(0,212,255,0.25)" }}
+                    style={{
+                      background: "rgba(0,212,255,0.12)",
+                      color: "#00d4ff",
+                      border: "1px solid rgba(0,212,255,0.25)",
+                    }}
                   >
                     Current
                   </span>
                 )}
               </div>
-              <div style={{ color: exp.color, fontSize: "0.85rem", fontWeight: 500 }}>
+              <div
+                style={{
+                  color: exp.color,
+                  fontSize: "0.85rem",
+                  fontWeight: 500,
+                }}
+              >
                 {exp.role}
               </div>
               <div
@@ -183,7 +268,13 @@ function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: n
                     style={{ background: exp.color }}
                   />
                   <div>
-                    <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.85rem", lineHeight: 1.7 }}>
+                    <p
+                      style={{
+                        color: "rgba(255,255,255,0.65)",
+                        fontSize: "0.85rem",
+                        lineHeight: 1.7,
+                      }}
+                    >
                       {a.text}
                     </p>
                     {a.metric && (
@@ -203,7 +294,10 @@ function ExperienceCard({ exp, index }: { exp: (typeof experiences)[0]; index: n
               ))}
             </ul>
             {/* Keywords */}
-            <div className="flex flex-wrap gap-2 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <div
+              className="flex flex-wrap gap-2 pt-4"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+            >
               {exp.keywords.map((kw, ki) => (
                 <span
                   key={ki}
@@ -269,7 +363,8 @@ export function ExperienceSection() {
           <div
             className="absolute left-0 top-0 bottom-0 w-px hidden lg:block ml-5"
             style={{
-              background: "linear-gradient(180deg, #00d4ff20, #7c3aed20, transparent)",
+              background:
+                "linear-gradient(180deg, #00d4ff20, #7c3aed20, transparent)",
             }}
           />
           <div className="space-y-5">
@@ -290,7 +385,10 @@ export function ExperienceSection() {
           <div className="flex items-start gap-4">
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)" }}
+              style={{
+                background: "rgba(16,185,129,0.1)",
+                border: "1px solid rgba(16,185,129,0.25)",
+              }}
             >
               <span style={{ fontSize: "1.1rem" }}>🎓</span>
             </div>
@@ -298,10 +396,22 @@ export function ExperienceSection() {
               <h3 style={{ color: "#ffffff", fontWeight: 600 }}>
                 B.Tech – Computer Science &amp; Engineering
               </h3>
-              <div style={{ color: "#10b981", fontSize: "0.85rem", fontWeight: 500 }}>
+              <div
+                style={{
+                  color: "#10b981",
+                  fontSize: "0.85rem",
+                  fontWeight: 500,
+                }}
+              >
                 Kalinga Institute of Industrial Technology
               </div>
-              <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.78rem", marginTop: "0.25rem" }}>
+              <div
+                style={{
+                  color: "rgba(255,255,255,0.4)",
+                  fontSize: "0.78rem",
+                  marginTop: "0.25rem",
+                }}
+              >
                 Bhubaneswar, India · 2014 – 2018
               </div>
             </div>
