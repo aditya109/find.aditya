@@ -21,7 +21,7 @@ const CERTS = [
   {
     title: "Certified Kubernetes Administrator",
     issuer: "The Linux Foundation",
-    period: "Valid '21 – '24",
+    period: "Validity '21 – '24",
     badge: `${import.meta.env.BASE_URL}cka.png`,
     validateUrl:
       "https://www.credly.com/badges/65b33e5c-851e-4db6-aba7-8f96cbe837b9/public_url",
@@ -86,9 +86,9 @@ function Certifications() {
                 <p className="mt-1 text-primary font-medium text-sm">
                   {cert.issuer}
                 </p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
+                <span className="inline-flex mt-2 px-3 py-0.5 rounded-full text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                   {cert.period}
-                </p>
+                </span>
               </div>
             </div>
 
