@@ -4,9 +4,10 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { tanstackRouter } from "@tanstack/router-plugin/vite";
 
-// Plain Vite + React SPA. Deployed as static files to GitHub Pages.
-// No SSR — just client-side rendering.
+// Plain Vite + React SPA. Deployed as static files to GitHub Pages under
+// the /find.aditya/ subpath. No SSR.
 export default defineConfig({
+  base: "/find.aditya/",
   plugins: [
     tanstackRouter({ target: "react", autoCodeSplitting: true }),
     react(),
