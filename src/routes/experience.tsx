@@ -186,13 +186,13 @@ function Experience() {
           mattered.
         </motion.h1>
 
-        <ol className="relative mt-16 max-w-3xl border-l border-primary/30 pl-8 space-y-16">
+        <ol className="relative mt-8 max-w-3xl border-l border-primary/30 pl-8 space-y-16">
           {ROLES.map((role, ri) => (
             <li key={role.company} className="relative">
               {role.current ? (
-                <span className="absolute -left-[42px] top-1 size-4 rounded-full bg-primary shadow-mint" />
+                <span className="absolute -left-8 -translate-x-1/2 top-1 size-4 rounded-full bg-primary shadow-mint" />
               ) : (
-                <span className="absolute -left-[42px] top-1 size-4 rounded-full border-2 border-primary/40" />
+                <span className="absolute -left-8 -translate-x-1/2 top-1 size-4 rounded-full border-2 border-primary/40" />
               )}
               <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
                 {role.current && (
@@ -252,7 +252,7 @@ function Experience() {
 
           {/* Education */}
           <li className="relative">
-            <span className="absolute -left-[42px] top-1 size-4 rounded-full border-2 border-primary/40" />
+            <span className="absolute -left-8 -translate-x-1/2 top-1 size-4 rounded-full border-2 border-primary/40" />
             <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-1">
                 <Calendar size={14} /> 2014 — 2018
