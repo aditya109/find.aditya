@@ -83,7 +83,7 @@ function Index() {
               Get in touch
             </Link>
             <ClientOnly>
-              <FunkyButton href="/Aditya_Resume.pdf">
+              <FunkyButton href={`${import.meta.env.BASE_URL}Aditya_Resume.pdf`}>
                 <Download size={18} />
                 Resume
               </FunkyButton>

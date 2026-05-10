@@ -22,7 +22,7 @@ const PUBS = [
     title: "Abstractive Text Summarization and Unsupervised Text Classifier",
     venue: "Springer ICMLIP '19",
     url: "https://link.springer.com/chapter/10.1007/978-981-15-1884-3_33",
-    icon: "/springer-logo.png",
+    icon: `${import.meta.env.BASE_URL}springer-logo.png`,
     description:
       "Research paper published at the International Conference on Machine Learning and Intelligent Processing (ICMLIP 2019), Springer. Explores deep learning approaches to abstractive summarization using Sequence-to-Sequence RNN with Bidirectional LSTM for unsupervised classification of natural language text.",
     tags: [
