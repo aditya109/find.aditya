@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Cpu, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, Cpu, Download, Layers, Sparkles } from "lucide-react";
 import { ClientOnly } from "@/components/three/ClientOnly";
 import { HeroShader } from "@/components/three/HeroShader";
+import { FunkyButton } from "@/components/three/FunkyButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -81,6 +82,12 @@ function Index() {
             >
               Get in touch
             </Link>
+            <ClientOnly>
+              <FunkyButton href="/Aditya_Resume.pdf">
+                <Download size={18} />
+                Resume
+              </FunkyButton>
+            </ClientOnly>
           </motion.div>
         </div>
       </section>

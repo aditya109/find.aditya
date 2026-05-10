@@ -92,6 +92,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23030213'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Avenir Next,Helvetica Neue,Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%23ffffff'%3EAK%3C/text%3E%3C/svg%3E",
+      },
+      {
         rel: "stylesheet",
         href: appCss,
       },
