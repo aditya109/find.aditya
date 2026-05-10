@@ -1,4 +1,4 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
@@ -82,6 +82,7 @@ const fragmentShader = /* glsl */ `
   uniform vec3 uColorB;
   uniform vec3 uColorC;
   uniform float uTime;
+  uniform float uOpacity;
   varying vec3 vNormal;
   varying vec3 vPos;
   varying float vNoise;
@@ -93,12 +94,24 @@ const fragmentShader = /* glsl */ `
     vec3 base = mix(uColorA, uColorB, mixA);
     base = mix(base, uColorC, fres * 0.8);
     base += fres * 0.3;
-    gl_FragColor = vec4(base, 1.0);
+    gl_FragColor = vec4(base, uOpacity);
   }
 `;
 
 /* Fixed-step time accumulator – immune to RAF delta jitter */
 const FIXED_DT = 1 / 60;
+
+/** Smoothly zooms the camera closer on large displays (≥ ~17″ / 1920px wide). */
+function AdaptiveZoom() {
+  const { camera } = useThree();
+  useFrame(() => {
+    // ~17″ laptop ≈ 1920 CSS-px wide; wider → push camera closer
+    const w = window.innerWidth;
+    const targetZ = w > 1920 ? 4.2 - Math.min((w - 1920) / 1000, 2.0) : 4.2;
+    camera.position.z += (targetZ - camera.position.z) * 0.04;
+  });
+  return null;
+}
 
 function Blob({ mobile }: { mobile: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -112,6 +125,7 @@ function Blob({ mobile }: { mobile: boolean }) {
       uTime: { value: 0 },
       uDistort: { value: 0.55 },
       uMouse: { value: new THREE.Vector2(0, 0) },
+      uOpacity: { value: 0 },
       uColorA: { value: new THREE.Color("#0d3a2e") },
       uColorB: { value: new THREE.Color("#2dd4a8") },
       uColorC: { value: new THREE.Color("#a78bfa") },
@@ -129,6 +143,11 @@ function Blob({ mobile }: { mobile: boolean }) {
 
     if (matRef.current) {
       matRef.current.uniforms.uTime.value = smoothTime.current;
+      // Slow fade-in over ~2 seconds
+      matRef.current.uniforms.uOpacity.value = Math.min(
+        matRef.current.uniforms.uOpacity.value + delta * 0.5,
+        1,
+      );
       pointerTarget.current.set(state.pointer.x, state.pointer.y);
       matRef.current.uniforms.uMouse.value.lerp(
         pointerTarget.current,
@@ -151,6 +170,7 @@ function Blob({ mobile }: { mobile: boolean }) {
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
+        transparent
         dithering
       />
     </mesh>
@@ -169,6 +189,7 @@ export function HeroShader() {
     >
       <ambientLight intensity={0.6} />
       <pointLight position={[5, 5, 5]} intensity={1.2} color="#73ffb8" />
+      <AdaptiveZoom />
       <Blob mobile={mobile} />
       {!mobile && (
         <EffectComposer>

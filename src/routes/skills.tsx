@@ -88,7 +88,7 @@ function Skills() {
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/70 to-background pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-5 md:px-8 py-16">
+      <div className="mx-auto max-w-7xl min-[1920px]:max-w-[1600px] px-5 md:px-8 min-[1920px]:px-12 py-16">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

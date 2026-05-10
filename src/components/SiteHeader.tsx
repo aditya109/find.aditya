@@ -16,7 +16,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 inset-x-0 z-50">
-      <div className="mx-auto max-w-7xl px-5 md:px-8 py-4 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl min-[1920px]:max-w-[1600px] px-5 md:px-8 min-[1920px]:px-12 py-4 flex items-center justify-between">
         <Link
           to="/"
           className="font-display text-xl font-bold tracking-tight"
@@ -74,7 +74,7 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/50 mt-24">
-      <div className="mx-auto max-w-7xl px-5 md:px-8 py-8 flex flex-col md:flex-row gap-3 items-center justify-between text-sm text-muted-foreground">
+      <div className="mx-auto max-w-7xl min-[1920px]:max-w-[1600px] px-5 md:px-8 min-[1920px]:px-12 py-8 flex flex-col md:flex-row gap-3 items-center justify-between text-sm text-muted-foreground">
         <p>© {new Date().getFullYear()} Aditya. Built with care & shaders.</p>
         <p className="font-display">
           <span className="text-aurora">find.aditya</span> v2

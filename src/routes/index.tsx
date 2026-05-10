@@ -34,7 +34,7 @@ function Index() {
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/0 via-background/40 to-background pointer-events-none" />
 
-        <div className="mx-auto max-w-7xl px-5 md:px-8 pt-24 md:pt-32">
+        <div className="mx-auto max-w-7xl min-[1920px]:max-w-[1600px] px-5 md:px-8 min-[1920px]:px-12 pt-24 md:pt-32">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ function Index() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.05 }}
-            className="mt-5 font-display font-bold leading-[0.95] text-5xl md:text-7xl lg:text-8xl max-w-5xl"
+            className="mt-5 font-display font-bold leading-[0.95] text-5xl md:text-7xl lg:text-8xl min-[1920px]:text-9xl max-w-5xl min-[1920px]:max-w-6xl"
           >
             Building <span className="text-aurora">durable systems</span> that
             outlast the hype.
@@ -56,7 +56,7 @@ function Index() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="mt-6 max-w-2xl text-lg text-muted-foreground"
+            className="mt-6 max-w-2xl min-[1920px]:max-w-3xl text-lg min-[1920px]:text-xl text-muted-foreground"
           >
             I design event-driven backends, Temporal workflows, and platform
             services that quietly do the right thing at 3 AM. Currently shipping
@@ -92,7 +92,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 md:px-8 py-20">
+      <section className="mx-auto max-w-7xl min-[1920px]:max-w-[1600px] px-5 md:px-8 min-[1920px]:px-12 py-20">
         <div className="grid md:grid-cols-3 gap-5">
           {[
             {
@@ -129,7 +129,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 md:px-8 pb-20">
+      <section className="mx-auto max-w-7xl min-[1920px]:max-w-[1600px] px-5 md:px-8 min-[1920px]:px-12 pb-20">
         <div className="overflow-hidden glass rounded-2xl py-6">
           <div className="flex gap-12 animate-[marquee_30s_linear_infinite] whitespace-nowrap">
             {[
