@@ -13,3 +13,20 @@ export function useIsMobile() {
   }, []);
   return isMobile;
 }
+
+/**
+ * Returns a capped DPR suitable for Three.js canvases.
+ * On large / high-DPR monitors the pixel count explodes; capping DPR
+ * keeps the GPU budget reasonable without visible quality loss.
+ */
+export function useCanvasDpr(): number {
+  const [dpr, setDpr] = useState(1);
+  useEffect(() => {
+    const raw = window.devicePixelRatio ?? 1;
+    const area = window.innerWidth * window.innerHeight;
+    // Large viewports (≥ ~2560×1440): cap at 1, others: cap at 1.5
+    const cap = area > 2_500_000 ? 1 : 1.5;
+    setDpr(Math.min(raw, cap));
+  }, []);
+  return dpr;
+}

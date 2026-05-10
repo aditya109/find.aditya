@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Copy, Github, Linkedin, Mail, Check } from "lucide-react";
 import { useState } from "react";
-import { ClientOnly } from "@/components/three/ClientOnly";
-import { ContactParticles } from "@/components/three/ContactParticles";
+import { lazyThree } from "@/components/three/ClientOnly";
+
+const ContactParticles = lazyThree(() => import("@/components/three/ContactParticles"), "ContactParticles");
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -33,9 +34,7 @@ function Contact() {
   return (
     <section className="relative min-h-[80vh]">
       <div className="absolute inset-0 -z-10">
-        <ClientOnly>
-          <ContactParticles />
-        </ClientOnly>
+        <ContactParticles />
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/30 via-background/60 to-background pointer-events-none" />
 

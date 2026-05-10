@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ClientOnly } from "@/components/three/ClientOnly";
-import { SkillsField } from "@/components/three/SkillsField";
+import { lazyThree } from "@/components/three/ClientOnly";
+
+const SkillsField = lazyThree(() => import("@/components/three/SkillsField"), "SkillsField");
 
 export const Route = createFileRoute("/skills")({
   head: () => ({
@@ -83,9 +84,7 @@ function Skills() {
   return (
     <section className="relative min-h-screen">
       <div className="absolute inset-0 -z-10">
-        <ClientOnly>
-          <SkillsField />
-        </ClientOnly>
+        <SkillsField />
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/40 via-background/70 to-background pointer-events-none" />
 

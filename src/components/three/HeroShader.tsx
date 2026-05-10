@@ -3,6 +3,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useCanvasDpr } from "@/hooks/use-mobile";
 
 const vertexShader = /* glsl */ `
   uniform float uTime;
@@ -144,7 +145,7 @@ function Blob({ mobile }: { mobile: boolean }) {
 
   return (
     <mesh ref={meshRef} scale={mobile ? 1.4 : 1.8}>
-      <icosahedronGeometry args={[1, mobile ? 64 : 128]} />
+      <icosahedronGeometry args={[1, mobile ? 32 : 48]} />
       <shaderMaterial
         ref={matRef}
         vertexShader={vertexShader}
@@ -158,11 +159,13 @@ function Blob({ mobile }: { mobile: boolean }) {
 
 export function HeroShader() {
   const mobile = useIsMobile();
+  const dpr = useCanvasDpr();
   return (
     <Canvas
-      dpr={mobile ? 1 : [1, 1.5]}
+      dpr={dpr}
       camera={{ position: [0, 0, 4.2], fov: 45 }}
       gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+      performance={{ min: 0.5 }}
     >
       <ambientLight intensity={0.6} />
       <pointLight position={[5, 5, 5]} intensity={1.2} color="#73ffb8" />

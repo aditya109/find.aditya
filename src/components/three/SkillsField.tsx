@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useCanvasDpr } from "@/hooks/use-mobile";
 
 const COLORS = [
   "#2dd4a8",
@@ -72,11 +72,13 @@ function Field({ count }: { count: number }) {
 
 export function SkillsField() {
   const mobile = useIsMobile();
+  const dpr = useCanvasDpr();
   return (
     <Canvas
-      dpr={mobile ? 1 : [1, 1.5]}
+      dpr={dpr}
       camera={{ position: [0, 0, 8], fov: 55 }}
-      gl={{ antialias: !mobile, alpha: true }}
+      gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+      performance={{ min: 0.5 }}
     >
       <ambientLight intensity={0.4} />
       <pointLight position={[5, 5, 5]} intensity={1} color="#2dd4a8" />

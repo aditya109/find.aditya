@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { MapPin, Calendar } from "lucide-react";
-import { ClientOnly } from "@/components/three/ClientOnly";
-import { TimelineSpine } from "@/components/three/TimelineSpine";
+import { lazyThree } from "@/components/three/ClientOnly";
+
+const TimelineSpine = lazyThree(() => import("@/components/three/TimelineSpine"), "TimelineSpine");
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -164,9 +165,7 @@ function Experience() {
   return (
     <section className="relative">
       <div className="fixed inset-y-0 right-0 w-[40%] -z-10 hidden md:block opacity-70 pointer-events-none">
-        <ClientOnly>
-          <TimelineSpine />
-        </ClientOnly>
+        <TimelineSpine />
       </div>
 
       <div className="mx-auto max-w-7xl px-5 md:px-8 py-16">

@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowRight, Cpu, Download, Layers, Sparkles } from "lucide-react";
-import { ClientOnly } from "@/components/three/ClientOnly";
-import { HeroShader } from "@/components/three/HeroShader";
-import { FunkyButton } from "@/components/three/FunkyButton";
+import { lazyThree } from "@/components/three/ClientOnly";
+
+const HeroShader = lazyThree(() => import("@/components/three/HeroShader"), "HeroShader");
+const FunkyButton = lazyThree<{ href: string; children: React.ReactNode }>(
+  () => import("@/components/three/FunkyButton"),
+  "FunkyButton",
+);
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,9 +30,7 @@ function Index() {
       <section className="relative min-h-[92vh] overflow-hidden">
         <div className="absolute inset-0 -z-10 grid-bg opacity-40" />
         <div className="absolute inset-0 -z-10">
-          <ClientOnly>
-            <HeroShader />
-          </ClientOnly>
+          <HeroShader />
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/0 via-background/40 to-background pointer-events-none" />
 
@@ -82,12 +84,10 @@ function Index() {
             >
               Get in touch
             </Link>
-            <ClientOnly>
-              <FunkyButton href={`${import.meta.env.BASE_URL}Aditya_Resume.pdf`}>
+            <FunkyButton href={`${import.meta.env.BASE_URL}Aditya_Resume.pdf`}>
                 <Download size={18} />
                 Resume
               </FunkyButton>
-            </ClientOnly>
           </motion.div>
         </div>
       </section>

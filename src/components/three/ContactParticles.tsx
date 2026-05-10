@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useCanvasDpr } from "@/hooks/use-mobile";
 
 function Particles({ count }: { count: number }) {
   const ref = useRef<THREE.Points>(null);
@@ -52,11 +52,13 @@ function Particles({ count }: { count: number }) {
 
 export function ContactParticles() {
   const mobile = useIsMobile();
+  const dpr = useCanvasDpr();
   return (
     <Canvas
-      dpr={mobile ? 1 : [1, 1.5]}
+      dpr={dpr}
       camera={{ position: [0, 0, 6], fov: 60 }}
-      gl={{ antialias: !mobile, alpha: true }}
+      gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+      performance={{ min: 0.5 }}
     >
       <Particles count={mobile ? 600 : 1800} />
     </Canvas>

@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useCanvasDpr } from "@/hooks/use-mobile";
 
 function Avatar() {
   const g = useRef<THREE.Group>(null);
@@ -38,11 +38,13 @@ function Avatar() {
 
 export function AboutAvatar() {
   const mobile = useIsMobile();
+  const dpr = useCanvasDpr();
   return (
     <Canvas
-      dpr={mobile ? 1 : [1, 1.5]}
+      dpr={dpr}
       camera={{ position: [0, 0, 4.5], fov: 50 }}
-      gl={{ antialias: !mobile, alpha: true }}
+      gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+      performance={{ min: 0.5 }}
     >
       <ambientLight intensity={0.5} />
       <pointLight position={[3, 3, 3]} intensity={1.4} color="#2dd4a8" />

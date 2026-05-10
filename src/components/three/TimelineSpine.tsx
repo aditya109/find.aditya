@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useCanvasDpr } from "@/hooks/use-mobile";
 
 function Spine({ progress }: { progress: number }) {
   const orbRef = useRef<THREE.Mesh>(null);
@@ -39,6 +39,7 @@ function Spine({ progress }: { progress: number }) {
 
 export function TimelineSpine() {
   const mobile = useIsMobile();
+  const dpr = useCanvasDpr();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -53,9 +54,10 @@ export function TimelineSpine() {
 
   return (
     <Canvas
-      dpr={mobile ? 1 : [1, 1.5]}
+      dpr={dpr}
       camera={{ position: [0, 0, 6], fov: 50 }}
-      gl={{ antialias: !mobile, alpha: true }}
+      gl={{ antialias: !mobile, alpha: true, powerPreference: "high-performance" }}
+      performance={{ min: 0.5 }}
     >
       <ambientLight intensity={0.4} />
       <Spine progress={progress} />

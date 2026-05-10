@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ClientOnly } from "@/components/three/ClientOnly";
-import { AboutAvatar } from "@/components/three/AboutAvatar";
+import { lazyThree } from "@/components/three/ClientOnly";
+
+const AboutAvatar = lazyThree(() => import("@/components/three/AboutAvatar"), "AboutAvatar");
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -66,9 +67,7 @@ function About() {
           </p>
         </div>
         <div className="relative h-[420px] rounded-3xl glass overflow-hidden">
-          <ClientOnly>
-            <AboutAvatar />
-          </ClientOnly>
+          <AboutAvatar />
         </div>
       </div>
 
