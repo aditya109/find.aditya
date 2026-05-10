@@ -4,11 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
 import { SiteHeader, SiteFooter } from "@/components/SiteHeader";
 
 function NotFoundComponent() {
@@ -69,58 +66,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aditya — Backend & Platform Engineer" },
-      {
-        name: "description",
-        content:
-          "Portfolio of Aditya — Senior Software Engineer building durable distributed systems with Go, Rust, Temporal, Kafka and Kubernetes.",
-      },
-      { name: "author", content: "Aditya" },
-      { property: "og:title", content: "Aditya — Backend & Platform Engineer" },
-      {
-        property: "og:description",
-        content:
-          "Senior Software Engineer building durable distributed systems with Go, Rust, Temporal, Kafka and Kubernetes.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-    ],
-    links: [
-      {
-        rel: "icon",
-        type: "image/svg+xml",
-        href: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23030213'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Avenir Next,Helvetica Neue,Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%23ffffff'%3EAK%3C/text%3E%3C/svg%3E",
-      },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
