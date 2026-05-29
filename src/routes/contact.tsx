@@ -21,7 +21,7 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const EMAIL = "hello@aditya.dev"; // placeholder — replace with real email
+const EMAIL = "kumaraditya1096@gmail.com"; // placeholder — replace with real email
 
 function Contact() {
   const [copied, setCopied] = useState(false);
@@ -82,7 +82,7 @@ function Contact() {
             <Github size={18} />
           </a>
           <a
-            href="https://linkedin.com/in/aditya"
+            href="https://www.linkedin.com/in/aditya109"
             target="_blank"
             rel="noreferrer"
             className="glass rounded-full p-3 hover:border-primary/40 transition-colors"
